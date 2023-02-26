@@ -4,6 +4,7 @@ const CollegeModel = require("../Models/collegeModel");
 //************************************* Create Interns **************************** */
 
 exports.interns = async (req, res) => {
+ // res.setHeader("Access-Control-Allow-Origin","*")
   try {
     if (!req.body.collegeName || req.body.collegeName.trim().length == 0) {
       return res
@@ -55,6 +56,7 @@ exports.interns = async (req, res) => {
 //********************************************* Get All Interns ****************************  */
 
 exports.getInterns = async (req, res) => {
+  //res.setHeader("Access-Control-Allow-Origin","*")
   try {
     if (!req.query.collegeName) {
       return res
@@ -80,7 +82,8 @@ exports.getInterns = async (req, res) => {
         },
       });
     }
-    return res.status(200).send({
+    return res.status(200).send({ 
+      status :true,
       data: {
         name: college.name,
         fullName: college.fullName,
